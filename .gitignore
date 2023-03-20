@@ -1,0 +1,6 @@
+**/.terraform/*
+*kubeconfig.yaml
+env/*
+terraform.tfvars
+.terraform*
+terraform.tfstate*

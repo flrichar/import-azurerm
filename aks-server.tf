@@ -6,14 +6,16 @@ resource "azurerm_kubernetes_cluster" "k8s" {
   dns_prefix          = var.dns_prefix
 
   default_node_pool {
-    name                = "default"
-    node_count          = 2
-    vm_size             = "Standard_D2s_v3"
-    os_disk_size_gb     = 30
-    os_disk_type        = "Ephemeral"
-    vnet_subnet_id      = azurerm_subnet.aks-subnet.id
-    max_pods            = 80
-    enable_auto_scaling = false
+    name                        = "default"
+    node_count                  = 2
+    vm_size                     = "Standard_D2s_v3"
+    os_disk_size_gb             = 42
+    os_disk_type                = "Ephemeral"
+    os_sku                      = "CBLMariner"
+    temporary_name_for_rotation = "tmpmigrate"
+    vnet_subnet_id              = azurerm_subnet.aks-subnet.id
+    max_pods                    = 44
+    enable_auto_scaling         = false
   }
 
   # Using Managed Identity

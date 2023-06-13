@@ -14,7 +14,7 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     os_sku                      = "CBLMariner"
     temporary_name_for_rotation = "tmpmigrate"
     vnet_subnet_id              = azurerm_subnet.aks-subnet.id
-    max_pods                    = 44
+    max_pods                    = 88
     enable_auto_scaling         = false
   }
 

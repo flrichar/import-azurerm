@@ -1,40 +1,35 @@
 variable "resource_group_name" {
-  default = "default-aks-win"
+  description = "name for the resource group"
 }
 
 variable "location" {
-  default = "Canada Central"
+  description = "region for aks cluster"
 }
 
 variable "cluster_name" {
-  default = "default-aks-win"
+  description = "default name for cluster"
 }
 
 variable "dns_prefix" {
-  default = "default-aks-win"
+  description = "dns prefix name"
 }
 
 variable "api_url" {
   description = "rancher api url"
-  default     = "https://fixme-rancher.fqdn.com/v3"
 }
 
 variable "token_key" {
   description = "api key to use for tf"
-  default     = "some-token-name:some-token-data"
 }
 
 variable "client_id" {
   description = "client id from azure"
-  default     = "some-client-id"
 }
 
 variable "client_secret" {
   description = "client secret from azure"
-  default     = "some-client-secret"
 }
 
 variable "subscription_id" {
   description = "subscription id from azure"
-  default     = "some-subscription-id"
 }

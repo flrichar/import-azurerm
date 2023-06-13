@@ -27,9 +27,9 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     # The --dns-service-ip address should be the .10 address of your service IP address range.
     dns_service_ip = "172.0.0.10"
     # The --docker-bridge-address lets the AKS nodes communicate with the underlying management platform. This IP address must not be within the virtual network IP address range of your cluster, and shouldn't overlap with other address ranges in use on your network.
-    docker_bridge_cidr = "172.17.0.1/16"
-    network_plugin     = "azure"
-    network_policy     = "calico"
+    ## docker_bridge_cidr = "172.17.0.1/16"
+    network_plugin = "azure"
+    network_policy = "calico"
   }
 }
 

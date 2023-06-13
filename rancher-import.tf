@@ -10,11 +10,24 @@
 ### above is for a new cloud-credential, below is for existing
 ### remember to change data.rancher2_cloud_credential in the next block
 data "rancher2_cloud_credential" "aks-creds" {
-  name = "FredR2023"
+  name = "aks-fredr"
 }
 
+
+## TODO fix contributor role for appid/tenant and new rg
+
+##  setup terraform_data resource with local-exec
+## appId = "${azurerm_kubernetes_cluster.k8s.identity.0.principal_id}"
+
+#resource "null_resource" "role_assignment" {
+#  depends_on = [azurerm_kubernetes_cluster.k8s]
+#  provisioner "local-exec" {
+#    command = "az role assignment create --assignee ${var.app_id} --scope /subscriptions/${var.subscription_id}/resourceGroups/${azurerm_resource_group.rg.name} --role Contributor"
+#  }
+#}
+
 resource "rancher2_cluster" "aks-import" {
-  name        = "aks-imported-cluster"
+  name        = var.cluster_name
   description = "Terraform AKS imported cluster"
   aks_config_v2 {
     name                = azurerm_kubernetes_cluster.k8s.name
